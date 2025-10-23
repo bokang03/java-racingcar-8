@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,15 @@ public class Application {
         List<Car> cars = new ArrayList<Car>();
         for (String name : carNameInput.split(",")) {
             cars.add(new Car(name));
+        }
+
+        System.out.println("실행결과");
+        for (int i = 0; i < racingCount; i++) {
+            for(Car car : cars) {
+                car.tryForward();
+                car.printStatus();
+            }
+            System.out.println();
         }
     }
 }
