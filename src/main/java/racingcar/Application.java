@@ -28,5 +28,26 @@ public class Application {
             }
             System.out.println();
         }
+
+        int winnerScore = findMaxScore(cars);
+        System.out.print("최종 우승자 : ");
+
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.score() == winnerScore) {
+                winners.add(car.getName().toString());
+            }
+        }
+        System.out.print(String.join(", ", winners));
+    }
+
+    private static int findMaxScore(List<Car> cars){
+        int max = 0;
+        for (Car car : cars) {
+            if (car.score() > max) {
+                max = car.score();
+            }
+        }
+        return max;
     }
 }
