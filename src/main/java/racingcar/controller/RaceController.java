@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
+import racingcar.domain.CarName;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +11,18 @@ public class RaceController {
 
     List<Car> cars = new ArrayList<>();
 
-    public List<Car> addCar(String names) {
-        for (String name : names.split(",")) {
-            cars.add(new Car(name));
+    public List<Car> addCar(String carNames) {
+        String[] parts = carNames.split(",");
+        List<CarName> nameObjects = new ArrayList<>();
+
+        for (String carName : parts) {
+            nameObjects.add(new CarName(carName));
+        }
+
+        CarName.validateDuplicateNames(nameObjects);
+
+        for (CarName carName : nameObjects) {
+            cars.add(new Car(carName.getName()));
         }
         return cars;
     }
