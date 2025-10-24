@@ -19,7 +19,7 @@ public class Application {
         System.out.println("시도할 횟수");
         int racingCount = Integer.parseInt(Console.readLine());
 
-        System.out.println("실행결과");
+        System.out.println("실행 결과");
         raceController.racingStart(racingCount);
 
         System.out.print("최종 우승자 : ");
