@@ -1,8 +1,8 @@
-package racingcar.domain;
+package racingcar.validate;
 
 import java.util.List;
 
-public class CarName {
+public class CarNameValidate {
     private static final int MAX_NAME_LENGTH = 5;
     private String name;
 
@@ -10,7 +10,7 @@ public class CarName {
         return name;
     }
 
-    public CarName(String name) {
+    public CarNameValidate(String name) {
         this.name = name;
         validateNameBlank(name);
         validateNameLength(name);
@@ -28,11 +28,11 @@ public class CarName {
         }
     }
 
-    public static void validateDuplicateNames(List<CarName> carNames) {
-        for (int i = 0; i < carNames.size(); i++) {
-            for (int j = i + 1; j < carNames.size(); j++) {
-                if (carNames.get(i).name.equals(carNames.get(j).name)) {
-                    throw new IllegalArgumentException("중복된 자동차 이름이 있습니다: " + carNames.get(i).name);
+    public static void validateDuplicateNames(List<CarNameValidate> carNameValidates) {
+        for (int i = 0; i < carNameValidates.size(); i++) {
+            for (int j = i + 1; j < carNameValidates.size(); j++) {
+                if (carNameValidates.get(i).name.equals(carNameValidates.get(j).name)) {
+                    throw new IllegalArgumentException("중복된 자동차 이름이 있습니다: " + carNameValidates.get(i).name);
                 }
             }
         }

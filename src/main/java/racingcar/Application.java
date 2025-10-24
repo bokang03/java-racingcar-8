@@ -4,10 +4,9 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.controller.RaceController;
 import racingcar.domain.Car;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static racingcar.domain.RacingConutValidate.countValidate;
+import static racingcar.validate.RacingConutValidate.countValidate;
 
 public class Application {
     public static void main(String[] args) {
@@ -18,9 +17,11 @@ public class Application {
         RaceController raceController = new RaceController();
         List<Car> cars = raceController.addCar(carNameInput);
 
-        System.out.println("시도할 횟수");
+        System.out.println("시도할 횟수는 몇 회 인가요?");
         int racingCount = Integer.parseInt(Console.readLine());
 
+
+        System.out.println();
         System.out.println("실행 결과");
         raceController.racingStart(racingCount);
         countValidate(racingCount);

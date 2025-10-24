@@ -1,10 +1,11 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.Test;
+import racingcar.validate.CarNameValidate;
 
 import java.util.List;
 
-class CarNameTest {
+class CarNameValidateTest {
 
     @Test
     void 이름_공백_검증() {
@@ -12,7 +13,7 @@ class CarNameTest {
 
         for (String name : names) {
             try {
-                CarName carName = new CarName(name);
+                CarNameValidate carNameValidate = new CarNameValidate(name);
                 System.out.println(name + " : 성공");
             } catch (IllegalArgumentException e) {
                 System.out.println(name +" : " + e.getMessage());
