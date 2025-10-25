@@ -16,6 +16,7 @@ public class RaceController {
         List<CarNameValidate> nameObjects = new ArrayList<>();
 
         for (String carName : parts) {
+            carName = carName.trim();
             nameObjects.add(new CarNameValidate(carName));
         }
 
