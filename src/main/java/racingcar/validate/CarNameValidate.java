@@ -1,6 +1,8 @@
 package racingcar.validate;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CarNameValidate {
     private static final int MAX_NAME_LENGTH = 5;
@@ -29,11 +31,11 @@ public class CarNameValidate {
     }
 
     public static void validateDuplicateNames(List<CarNameValidate> carNameValidates) {
-        for (int i = 0; i < carNameValidates.size(); i++) {
-            for (int j = i + 1; j < carNameValidates.size(); j++) {
-                if (carNameValidates.get(i).name.equals(carNameValidates.get(j).name)) {
-                    throw new IllegalArgumentException("중복된 자동차 이름이 있습니다: " + carNameValidates.get(i).name);
-                }
+        Set<String> seen = new HashSet<>();
+        for (CarNameValidate carNames : carNameValidates) {
+            String carName = carNames.name;
+            if (!seen.add(carName)) {
+                throw new IllegalArgumentException("중복된 자동차 이름이 있습니다: " + carName);
             }
         }
     }
