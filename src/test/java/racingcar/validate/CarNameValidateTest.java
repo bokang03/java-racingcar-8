@@ -1,13 +1,11 @@
-package racingcar.domain;
+package racingcar.validate;
 
 import org.junit.jupiter.api.Test;
-import racingcar.validate.CarNameValidate;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static racingcar.validate.CarNameValidate.validateDuplicateNames;
 
 class CarNameValidateTest {
 
